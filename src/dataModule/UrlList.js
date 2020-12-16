@@ -11,7 +11,8 @@
 // export const originalUrl = 'http://10.21.1.165:8000/';
 export const originalUrl = 'http://212.64.4.130:9000/';
 // export const originalUrl = 'http://10.41.54.88:8000/';
-// export const originalUrl = 'http://192.168.1.115:9000/';
+// export const originalUrl = 'http://192.168.1.100:9001/';
+
 // export const originalUrl = 'http://10.21.1.58:8000/api/';//innovation space 1
 // 用户 账户信息 账户信息表
 export const userForm = 'user/info/getinfo/';

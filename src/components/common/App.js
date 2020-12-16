@@ -60,49 +60,137 @@ class App extends Component {
       username = JSON.parse(getCookie("user")).username;
 			type = JSON.parse(getCookie("user")).type;
     }
-    return (
-     <Layout style={{ minHeight: '100vh' }}>
-			{/* <Provider store={store}></Provider> */}
-         <HeaderCustom collapsed={collapsed} toggle={this.toggle} username={username} />
-         <Layout>
-           <Sider width={200} style={{ background: '#fff' }}>
-             	<SiderMenu/>
-           </Sider>
-           <Layout style={{ padding:0, marginTop: '3rem' }}>
-             <Content
-               style={{
-                 background: '#fff',
-                 padding: 24,
-                 margin: 0
-               }}
-             >
-               <Switch>
-								<Route exact path="/app/" component={appIndex}/>
-									{/* 用户端 机器人服务部分 */}
-								<Route exact path="/app/backstage/informationAdmin/AccountInformation/" component={AccountInformation}></Route>
-									{/* 运维 订单记录 */}
-								<Route exact path="/app/maintain/ordersAdmin/OrdersRecord/" component={OrdersRecord}/>
-								<Route exact path="/app/maintain/robotManage/RobotManage/" component={RobotManage}/>
-								<Route exact path="/app/maintain/robotManage/RobotMaintain/" component={RobotMaintain}/>
-								<Route exact path="/app/maintain/robotManage/RobotTransfer/" component={RobotTransfer}/>
-									{/* 用户端 */}
-								<Route exact path="/app/userSide/Personal/" component={Personal}/>
-								<Route exact path="/app/userSide/order/" component={Order}/>
-								<Route exact path="/app/userSide/ordersUser/OrderDetails/:orderId/" component={OrderDetails}/>
-								<Route exact path="/app/userSide/robotServices/DispatchService/" component={DispatchService}/>
-								<Route exact path="/app/userSide/robotServices/WaitToDevelop/" component={WaitToDevelop}/>
-								<Route component={noMatch} />
-							 </Switch>
-             </Content>
-						 <Footer style={{ textAlign: 'center', backgroundColor: "#778899", color: "white" }}>
-						 	<span style={{ display: "block" }}>公司地址：上海市杨浦区军工路516号上海理工大学</span>
-						 	<span style={{ display: "block" }}>联系电话：12345</span>
-						 	<span style={{ display: "block" }}>邮箱：12345@qq.com</span>
-						 </Footer>
-           </Layout>
-         </Layout>
-       </Layout>
-    )
+		 {/* 根据用户权限限制route组件 type 3 2 1 */}
+		 if(type == 3){
+			 console.log('type:',type);
+			 return (
+			  <Layout style={{ minHeight: '100vh' }}>
+			 	{/* <Provider store={store}></Provider> */}
+			      <HeaderCustom collapsed={collapsed} toggle={this.toggle} username={username} />
+			      <Layout>
+			        <Sider width={200} style={{ background: '#fff' }}>
+			          	<SiderMenu/>
+			        </Sider>
+			        <Layout style={{ padding:0, marginTop: '3rem' }}>
+			          <Content
+			            style={{
+			              background: '#fff',
+			              padding: 24,
+			              margin: 0
+			            }}
+			          >
+			            <Switch>
+			 							{/* 主页 */}
+			 						<Route exact path="/app/" component={appIndex}/>
+			 							{/* 后台 机器人服务部分 */}
+			 						<Route exact path="/app/backstage/informationAdmin/AccountInformation/" component={AccountInformation}></Route>
+			 							{/* 运维 订单记录 */}
+			 						<Route exact path="/app/maintain/ordersAdmin/OrdersRecord/" component={OrdersRecord}/>
+			 						<Route exact path="/app/maintain/robotManage/RobotManage/" component={RobotManage}/>
+			 						<Route exact path="/app/maintain/robotManage/RobotMaintain/" component={RobotMaintain}/>
+			 						<Route exact path="/app/maintain/robotManage/RobotTransfer/" component={RobotTransfer}/>
+			 							{/* 用户端 */}
+			 						<Route exact path="/app/userSide/Personal/" component={Personal}/>
+			 						<Route exact path="/app/userSide/order/" component={Order}/>
+			 						<Route exact path="/app/userSide/ordersUser/OrderDetails/:orderId/" component={OrderDetails}/>
+			 						<Route exact path="/app/userSide/robotServices/DispatchService/" component={DispatchService}/>
+			 						<Route exact path="/app/userSide/robotServices/WaitToDevelop/" component={WaitToDevelop}/>
+			 						<Route component={noMatch} />
+			 					 </Switch>
+			          </Content>
+			 				 <Footer style={{ textAlign: 'center', backgroundColor: "#778899", color: "white" }}>
+			 				 	<span style={{ display: "block" }}>公司地址：上海市杨浦区军工路516号上海理工大学</span>
+			 				 	<span style={{ display: "block" }}>联系电话：12345</span>
+			 				 	<span style={{ display: "block" }}>邮箱：12345@qq.com</span>
+			 				 </Footer>
+			        </Layout>
+			      </Layout>
+			    </Layout>
+			 )
+		 }else if(type == 1){
+			 console.log('type:',type);
+			 return (
+			  <Layout style={{ minHeight: '100vh' }}>
+			 	{/* <Provider store={store}></Provider> */}
+			      <HeaderCustom collapsed={collapsed} toggle={this.toggle} username={username} />
+			      <Layout>
+			        <Sider width={200} style={{ background: '#fff' }}>
+			          	<SiderMenu/>
+			        </Sider>
+			        <Layout style={{ padding:0, marginTop: '3rem' }}>
+			          <Content
+			            style={{
+			              background: '#fff',
+			              padding: 24,
+			              margin: 0
+			            }}
+			          >
+			            <Switch>
+			 							{/* 主页 */}
+			 						<Route exact path="/app/" component={appIndex}/>
+			 							{/* 用户端 */}
+			 						<Route exact path="/app/userSide/Personal/" component={Personal}/>
+			 						<Route exact path="/app/userSide/order/" component={Order}/>
+			 						<Route exact path="/app/userSide/ordersUser/OrderDetails/:orderId/" component={OrderDetails}/>
+			 						<Route exact path="/app/userSide/robotServices/DispatchService/" component={DispatchService}/>
+			 						<Route exact path="/app/userSide/robotServices/WaitToDevelop/" component={WaitToDevelop}/>
+			 						<Route component={noMatch} />
+			 					 </Switch>
+			          </Content>
+			 				 <Footer style={{ textAlign: 'center', backgroundColor: "#778899", color: "white" }}>
+			 				 	<span style={{ display: "block" }}>公司地址：上海市杨浦区军工路516号上海理工大学</span>
+			 				 	<span style={{ display: "block" }}>联系电话：12345</span>
+			 				 	<span style={{ display: "block" }}>邮箱：12345@qq.com</span>
+			 				 </Footer>
+			        </Layout>
+			      </Layout>
+			    </Layout>
+			 )
+		 }else{
+			 console.log('type:',type);
+			 return (
+			  <Layout style={{ minHeight: '100vh' }}>
+			 	{/* <Provider store={store}></Provider> */}
+			      <HeaderCustom collapsed={collapsed} toggle={this.toggle} username={username} />
+			      <Layout>
+			        <Sider width={200} style={{ background: '#fff' }}>
+			          	<SiderMenu/>
+			        </Sider>
+			        <Layout style={{ padding:0, marginTop: '3rem' }}>
+			          <Content
+			            style={{
+			              background: '#fff',
+			              padding: 24,
+			              margin: 0
+			            }}
+			          >
+			            <Switch>
+			 							{/* 主页 */}
+			 						<Route exact path="/app/" component={appIndex}/>
+			 							{/* 运维 订单记录 */}
+			 						<Route exact path="/app/maintain/ordersAdmin/OrdersRecord/" component={OrdersRecord}/>
+			 						<Route exact path="/app/maintain/robotManage/RobotManage/" component={RobotManage}/>
+			 						<Route exact path="/app/maintain/robotManage/RobotMaintain/" component={RobotMaintain}/>
+			 						<Route exact path="/app/maintain/robotManage/RobotTransfer/" component={RobotTransfer}/>
+			 							{/* 用户端 */}
+			 						<Route exact path="/app/userSide/Personal/" component={Personal}/>
+			 						<Route exact path="/app/userSide/order/" component={Order}/>
+			 						<Route exact path="/app/userSide/ordersUser/OrderDetails/:orderId/" component={OrderDetails}/>
+			 						<Route exact path="/app/userSide/robotServices/DispatchService/" component={DispatchService}/>
+			 						<Route exact path="/app/userSide/robotServices/WaitToDevelop/" component={WaitToDevelop}/>
+			 						<Route component={noMatch} />
+			 					 </Switch>
+			          </Content>
+			 				 <Footer style={{ textAlign: 'center', backgroundColor: "#778899", color: "white" }}>
+			 				 	<span style={{ display: "block" }}>公司地址：上海市杨浦区军工路516号上海理工大学</span>
+			 				 	<span style={{ display: "block" }}>联系电话：12345</span>
+			 				 	<span style={{ display: "block" }}>邮箱：12345@qq.com</span>
+			 				 </Footer>
+			        </Layout>
+			      </Layout>
+			    </Layout>
+			 )
+		 }
   }
 }
 

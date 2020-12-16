@@ -152,18 +152,7 @@ class CommonAddress extends Component{
 	componentDidUpdate(){   //组件跟新时触发，可以再这个函数内取得Modal的DOM元素
 		console.log('chufa')
 		// setTimeout(()=>{  //必须要用setTimeout把这个任务放到异步队列里，不然第一次获取不到！！
-		// 	let Form = {...this.state.ModalForm};
-		// 	let address = document.getElementById('tipinput');
-		// 	//eslint-disable-next-line
-		// 	var map = new AMap.Map("container", {
-		// 			resizeEnable: true
-		// 	});
-		// 	map.plugin('AMap.Autocomplete', function() {
-		// 		//eslint-disable-next-line no-undef
-		// 		var auto = new AMap.Autocomplete({
-		// 		    input: "tipinput"
-		// 		});
-		// 	})
+		
 		// },)
 	}
 	//

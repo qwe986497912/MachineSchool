@@ -86,7 +86,7 @@ class DispatchService extends Component{
 						<div id="container" style={{width: "100%",height: '100%'}}></div>
 						<div id="panel" 
 							style={{position: 'fixed',backgroundColor: 'white',overflowY:'auto',
-							top:20,right:10,width:250, maxHeight: '90%'
+							top:20,right:10,width:250, maxHeight: '90%',
 						}}></div>
 					</div>
 				</div>
@@ -158,7 +158,7 @@ class DispatchService extends Component{
 		//eslint-disable-next-line no-undef
 		 var map = new AMap.Map("container", {
 					resizeEnable: true,
-					center: [116.397428, 39.90923],//地图中心点
+					center: [121.56290925340559,31.293409795332167],//地图中心点
 					zoom: 13 //地图显示的缩放级别
 			});
 			var transOptions = {
